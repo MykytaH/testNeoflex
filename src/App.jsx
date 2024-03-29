@@ -7,7 +7,7 @@ import RootLayout from "./pages/RootLayout";
 const router = createBrowserRouter(
   [
     {
-      path: "/testNeoflex",
+      path: "/",
       element: <RootLayout />,
       // errorElement: <Error />,
       children: [
@@ -20,7 +20,7 @@ const router = createBrowserRouter(
     },
   ],
   {
-    basename: "/testNeoflex",
+    basename: "/testNeoflex/",
   }
 );
 
