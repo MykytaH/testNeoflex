@@ -9,7 +9,7 @@ export default function CartItems() {
         <div className="cart-all">
           {HEADPHONES.map((item) =>
             item.items.map((item) => (
-              <div className="cart-item">
+              <div key={item.title} className="cart-item">
                 <div>
                   <img src={item.img} alt="" />
                   <div></div>
