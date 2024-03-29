@@ -20,7 +20,7 @@ const router = createBrowserRouter(
     },
   ],
   {
-    basename: "/testNeoflex/",
+    basename: "/testNeoflex",
   }
 );
 
