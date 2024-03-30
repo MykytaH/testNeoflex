@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { FaGlobe, FaTelegram, FaVk, FaWhatsapp } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
@@ -7,7 +6,9 @@ export default function Footer() {
     <footer>
       <div className="footer">
         <div className="footer-el">
-          <h1>QPICK</h1>
+          <a href="#main-header">
+            <h1 className="title">QPICK</h1>
+          </a>
         </div>
         <div className="footer-el">
           <p>Избранное </p>
@@ -18,7 +19,7 @@ export default function Footer() {
         </div>
         <div className="footer-el">
           <p>Условия сервиса</p>
-          <div>
+          <div className="lang-select">
             <FaGlobe />
             <p className="orange">РУС</p>
             <p>ENG</p>
@@ -26,9 +27,16 @@ export default function Footer() {
         </div>
         <div className="footer-el">
           <div className="contacts">
-            <FaVk />
-            <FaTelegram />
-            <FaWhatsapp />
+            <a href="https://vk.com" target="_blank">
+              <FaVk />
+            </a>
+            <a href="https://web.telegram.org/a/" target="_blank">
+              <FaTelegram />
+            </a>
+
+            <a href="https://www.whatsapp.com" target="_blank">
+              <FaWhatsapp />
+            </a>
           </div>
         </div>
       </div>

@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   font-family: "Montserrat", sans-serif;
@@ -24,6 +28,26 @@ a {
   text-decoration: none;
 }
 
+svg {
+  transition: 300ms;
+}
+
+svg:hover {
+  transition: 300ms;
+  color: orange;
+  cursor: pointer;
+}
+
+.bold {
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.gray {
+  font-weight: 600;
+  color: #aaaaaa;
+}
+
 #main-header {
   display: flex;
   justify-content: center;
@@ -33,9 +57,10 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-  max-width: 1110px;
-  padding: 0 2rem;
+  width: 90%;
+  max-width: 70rem;
+  margin: 2rem auto;
+  padding: 0 1rem;
 }
 
 .title {
@@ -43,6 +68,12 @@ a {
   font-weight: 700;
   margin: 0;
   cursor: pointer;
+  transition: 150ms;
+}
+
+.title:hover {
+  color: orange;
+  transition: 150ms;
 }
 
 #nav-bar .button {
@@ -94,6 +125,12 @@ a {
   border-radius: 2rem;
   overflow: hidden;
   box-shadow: 0 1px 6px rgba(15, 18, 107, 0.3);
+  transition: 150ms;
+}
+
+.item:hover {
+  box-shadow: 0 1px 15px rgba(0, 0, 0, 0.3);
+  transition: 150ms;
 }
 
 .item article {
@@ -144,6 +181,12 @@ a {
   text-align: left;
   cursor: pointer;
   margin: auto 0;
+  transition: 150ms;
+}
+
+.item-actions:hover {
+  transition: 150ms;
+  color: orange;
 }
 
 .title-price {
@@ -209,9 +252,19 @@ footer {
   margin: 1rem auto;
 }
 
-.footer-el .contacts {
+.footer-el .contacts a {
   font-size: 2rem;
   margin-top: 1rem;
+}
+
+.footer-el p:hover {
+  color: orange;
+  cursor: pointer;
+}
+
+.footer-el .lang-select svg:hover {
+  color: black;
+  cursor: default;
 }
 
 .orange {
@@ -234,16 +287,34 @@ footer {
   background-color: white;
   box-shadow: 0 1px 6px rgba(15, 18, 107, 0.3);
   border-radius: 2rem;
-  padding: 2rem;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  transition: 150ms;
 }
 
-.cart-total {
-  width: 350px;
-  height: 120px;
-  background-color: white;
-  box-shadow: 0 1px 6px rgba(15, 18, 107, 0.3);
-  border-radius: 2rem;
-  padding: 2rem;
+.cart-item:hover {
+  transition: 150ms;
+  box-shadow: 0 1px 15px rgba(15, 18, 107, 0.3);
+}
+
+.cart-item .group {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.group-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: end;
+}
+
+.group-col svg {
+  width: 20px;
+  height: 20px;
+  margin-top: 1rem;
 }
 
 .cart-item div img {
@@ -255,4 +326,70 @@ footer {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+
+.quantity {
+  width: 146.53px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.operation {
+  background-color: orange;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  text-align: center;
+  padding: 2px 2px 2px 2px;
+  transition: 150ms;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.operation:hover {
+  background-color: chocolate;
+  cursor: pointer;
+  transition: 150ms;
+}
+
+.cart-total {
+  width: 350px;
+  height: 120px;
+  background-color: white;
+  box-shadow: 0 1px 6px rgba(15, 18, 107, 0.3);
+  border-radius: 2rem;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.cart-total .total {
+  margin: 0.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  text-transform: uppercase;
+}
+
+.cart-total button {
+  width: 348.98px;
+  height: 65px;
+  border-radius: 1.5rem;
+  background-color: #000000;
+  color: white;
+  transition: 150ms;
+}
+
+.cart-total button:hover {
+  background-color: #000000;
+  box-shadow: 0 1px 20px rgba(15, 18, 107, 0.3);
+  color: orange;
+  cursor: pointer;
+  transition: 150ms;
+}
+
+.cart-total button p {
+  font-family: Montserrat;
+  font-size: 17px;
+  font-weight: 500;
 }

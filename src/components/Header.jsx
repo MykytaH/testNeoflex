@@ -5,9 +5,9 @@ export default function Header() {
   return (
     <header id="main-header">
       <nav id="nav-bar">
-        <div className="title">
+        <div>
           <Link to="">
-            <h1>QPICK</h1>
+            <h1 className="title">QPICK</h1>
           </Link>
         </div>
         <div className="icons">
