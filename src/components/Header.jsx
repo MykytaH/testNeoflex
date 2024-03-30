@@ -1,7 +1,10 @@
+import { useContext } from "react";
 import { FaHeart, FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { CartContext } from "../store/cart-context";
 
 export default function Header() {
+  const quantity = useContext(CartContext).userCart.items.length;
   return (
     <header id="main-header">
       <nav id="nav-bar">
@@ -18,7 +21,7 @@ export default function Header() {
           <Link to="cart" className="button">
             <FaShoppingCart />
           </Link>
-          <p className="icon"> 0</p>
+          <p className="icon"> {quantity}</p>
         </div>
       </nav>
     </header>
