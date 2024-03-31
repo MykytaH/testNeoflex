@@ -48,7 +48,17 @@ svg:hover {
   color: #aaaaaa;
 }
 
+#top {
+  margin-bottom: 6rem;
+}
+
 #main-header {
+  position: fixed;
+  top: 0%;
+  width: 100%;
+  z-index: 50;
+  background-color: transparent;
+  backdrop-filter: blur(10px);
   display: flex;
   justify-content: center;
 }
@@ -59,7 +69,8 @@ svg:hover {
   align-items: center;
   width: 90%;
   max-width: 70rem;
-  margin: 2rem auto;
+  margin: 0 auto;
+  margin-top: 1rem;
   padding: 0 1rem;
 }
 
@@ -188,12 +199,14 @@ svg:hover {
   font-weight: 600;
   text-align: right;
   text-decoration: line-through;
+  text-decoration-color: orange;
   color: #ffce7f;
   font-weight: bold;
   margin: auto 0;
 }
 
 .item-actions {
+  width: 65px;
   font-size: 17px;
   font-weight: 600;
   text-align: left;
@@ -218,24 +231,31 @@ svg:hover {
 
 .rate-action {
   width: 100%;
-
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.eye {
+  width: 20px;
+  height: 20px;
 }
 
 .price-flex {
+  width: 65px;
   display: flex;
   gap: 0.5rem;
 }
 
 #content-wrap {
+  padding-top: 6rem;
   padding-bottom: 200px;
 }
 
 footer {
   width: 100%;
   position: absolute;
-  bottom: 0;
+  bottom: -7rem;
   display: flex;
   justify-content: center;
 }
@@ -322,8 +342,10 @@ footer {
   box-shadow: 0 1px 15px rgba(15, 18, 107, 0.3);
 }
 
-.cart-item .group {
+.group {
   display: flex;
+  justify-content: space-between;
+  min-height: 30vh;
   align-items: center;
   gap: 2rem;
 }
@@ -345,7 +367,7 @@ footer {
   margin-top: 1rem;
 }
 
-.cart-item div img {
+.cart-img {
   width: 146.53px;
   height: 136px;
 }
@@ -371,6 +393,7 @@ footer {
   text-align: center;
   padding: 2px 2px 2px 2px;
   transition: 150ms;
+  box-shadow: 0 1px 6px rgba(15, 18, 107, 0.3);
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
@@ -380,6 +403,7 @@ footer {
   background-color: chocolate;
   cursor: pointer;
   transition: 150ms;
+  box-shadow: 0 1px 5px rgb(0, 0, 0);
 }
 
 .cart-total {
@@ -432,7 +456,7 @@ footer {
   font-weight: 500;
 }
 
-form {
+.payment-form {
   width: 90%;
   max-width: 70rem;
   margin: 2rem auto;
@@ -440,6 +464,121 @@ form {
   padding: 1rem;
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+
+.form {
+  width: 40vw;
+  background-color: white;
+  box-shadow: 0 1px 6px rgba(15, 18, 107, 0.3);
+
+  padding: 2rem;
+  border-radius: 2rem;
+}
+
+.control {
+  width: 100%;
+  margin: 0.5rem 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.control label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.control input {
+  width: 100%;
+  max-width: 20rem;
+  font: inherit;
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.control-row {
+  display: flex;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+
+.pay-button {
+  font: inherit;
+  cursor: pointer;
+  background-color: black;
+  border-radius: 2rem;
+  color: white;
+  padding: 0.5rem 1.5rem;
+  transition: 150ms;
+}
+
+.pay-button:hover {
+  color: orange;
+  box-shadow: 0 1px 10px rgba(15, 18, 107, 0.3);
+  transition: 150ms;
+}
+
+.text-button {
+  font: inherit;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: black;
+  padding: 0.5rem 1.5rem;
+  border-radius: 2rem;
+  transition: 150ms;
+}
+
+.text-button:hover {
+  background-color: orange;
+  transition: 150ms;
+}
+
+.pay-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.modal {
+  padding: 0;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  border-radius: 2rem;
+  animation: fade-slide-up 0.3s ease-out forwards;
+}
+
+.modal::backdrop {
+  background-color: rgba(0, 0, 0, 0.55);
+}
+
+.show-item {
+  width: fit-content;
+  max-width: 70vw;
+  max-height: 70vh;
+  height: fit-content;
+  background-color: white;
+  box-shadow: 0 1px 6px rgba(15, 18, 107, 0.3);
+  border-radius: 2rem;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  transition: 150ms;
+}
+
+@keyframes fade-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(4rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (max-width: 850px) {
@@ -468,6 +607,10 @@ form {
 
   #content-wrap {
     padding-bottom: 300px;
+  }
+
+  .show {
+    flex-direction: column;
   }
 }
 

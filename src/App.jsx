@@ -36,6 +36,11 @@ const router = createBrowserRouter(
 export default function App() {
   const [userCart, setUserCart] = useState({ items: [] });
 
+  let total;
+  userCart.items.map((item) => {
+    total = +item.price * +item.quantity;
+  });
+
   function handleAddToCart({ title, img, price }) {
     setUserCart((prevState) => {
       let userCart = [...prevState.items];
@@ -95,6 +100,7 @@ export default function App() {
   const ctxValue = {
     items: HEADPHONES,
     userCart: userCart,
+    userCartTotal: total,
     addToCart: handleAddToCart,
     updateQuantity: handleUpdateQuantity,
     deletFromCart: handleDeleteFromCart,

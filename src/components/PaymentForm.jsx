@@ -1,47 +1,37 @@
-import { useState } from "react";
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { CartContext } from "../store/cart-context";
 
 export default function PaymentForm() {
-  const [orderState, setOrderState] = useState(false);
-
-  const [isLoading, setIsLoading] = useState(false);
+  const cartCtx = useContext(CartContext);
 
   return (
-    <form>
-      <h2>Checkout</h2>
-      <p>Total Amount: $</p>
-      <p className="control">
-        <label htmlFor="name">Name</label>
-        <input required id="name" type="text" name="name" />
-      </p>
-      <p className="control">
-        <label htmlFor="email">Email</label>
-        <input required id="email" type="email" name="email" />
-      </p>
-      <p className="control">
-        <label htmlFor="address">Address</label>
-        <input required id="address" type="text" name="address" />
-      </p>
-      {orderState && (
-        <>
-          <div className="error">
-            <h2></h2>
-            <p>Something went wrong!</p>
-            <p>Please try again! Or press button if backend is dead ))</p>
-            <button className="button">CLICK !!!</button>
-          </div>
-        </>
-      )}
+    <form className="payment-form">
+      <div className="form">
+        <h2>Оплата</h2>
+        <p>Всего: {cartCtx.userCartTotal} ₽</p>
+        <p className="control">
+          <label htmlFor="name">Имя</label>
+          <input required id="name" type="text" name="name" />
+        </p>
+        <p className="control">
+          <label htmlFor="email">Email</label>
+          <input required id="email" type="email" name="email" />
+        </p>
+        <p className="control">
+          <label htmlFor="card">Номер банковской карты</label>
+          <input required id="card" type="text" name="card" />
+        </p>
 
-      <p className="modal-actions">
-        {isLoading ? (
-          <span>Processing the order...</span>
-        ) : (
+        <p className="pay-actions">
           <>
-            <button className="text-button">Close</button>
-            <button className="button">Order</button>
+            <Link to="/cart" relative="route">
+              <button className="text-button">Назад</button>
+            </Link>
+            <button className="pay-button">Заказать</button>
           </>
-        )}
-      </p>
+        </p>
+      </div>
     </form>
   );
 }

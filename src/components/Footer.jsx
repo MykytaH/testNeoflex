@@ -6,7 +6,7 @@ export default function Footer() {
     <footer>
       <div className="footer">
         <div className="footer-el">
-          <a href="#main-header">
+          <a href="#content-wrap">
             <h1 className="title">QPICK</h1>
           </a>
         </div>

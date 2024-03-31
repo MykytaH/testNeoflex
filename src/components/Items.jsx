@@ -1,9 +1,18 @@
-import { FaStar } from "react-icons/fa";
-import { useContext } from "react";
+import { FaRegEye, FaStar } from "react-icons/fa";
+import { useContext, useState } from "react";
 import { CartContext } from "../store/cart-context";
+import Modal from "./Modal";
+import ItemShow from "./ItemShow";
 
 export default function Items() {
+  const [open, setOpen] = useState(false);
+  const [modalItem, setModalItem] = useState({});
+
   const cartCtx = useContext(CartContext);
+
+  function handleCloseModal() {
+    setOpen((prev) => !prev);
+  }
 
   return (
     <>
@@ -33,19 +42,29 @@ export default function Items() {
                       <FaStar className="item-description" color="orange" />
                       <p className="item-description">{item.stars}</p>
                     </div>
-                    <div className="item-actions">
-                      <p
-                        className="button"
-                        onClick={() =>
-                          cartCtx.addToCart({
-                            title: item.title,
-                            img: item.img,
-                            price: item.price,
-                          })
-                        }
-                      >
-                        Купить
-                      </p>
+                    <FaRegEye
+                      className="eye"
+                      onClick={() => {
+                        setOpen((prev) => !prev);
+                        setModalItem({
+                          title: item.title,
+                          img: item.img,
+                          description: item.description,
+                        });
+                      }}
+                    />
+
+                    <div
+                      className="item-actions"
+                      onClick={() =>
+                        cartCtx.addToCart({
+                          title: item.title,
+                          img: item.img,
+                          price: item.price,
+                        })
+                      }
+                    >
+                      <p className="button">Купить</p>
                     </div>
                   </div>
                 </article>
@@ -54,6 +73,9 @@ export default function Items() {
           </ul>
         </div>
       ))}
+      <Modal open={open} onModalClose={handleCloseModal}>
+        <ItemShow item={modalItem} />
+      </Modal>
     </>
   );
 }

@@ -8,7 +8,11 @@ export default function CartItems() {
   const cartCtx = useContext(CartContext);
   return (
     <>
-      <h2 className="items-title">Корзина</h2>
+      {cartCtx.userCart.items.length > 0 ? (
+        <h2 className="items-title">Корзина</h2>
+      ) : (
+        <h2 className="items-title">Ваша корзина пуста (</h2>
+      )}
       <div className="cart-layout">
         <div className="cart-all">
           {cartCtx.userCart.items.map((item) => {
@@ -17,7 +21,7 @@ export default function CartItems() {
               <div key={item.title} className="cart-item">
                 <div className="group">
                   <div>
-                    <img src={item.img} alt="" />
+                    <img className="cart-img" src={item.img} alt="" />
                     <div className="quantity">
                       <p
                         className="operation"
@@ -61,9 +65,11 @@ export default function CartItems() {
               </button>
             </Link>
           ) : (
-            <button>
-              <p>Ваша корзина пуста (</p>
-            </button>
+            <Link to="/" relative="route">
+              <button>
+                <p>Перейти к покупкам</p>
+              </button>
+            </Link>
           )}
         </div>
       </div>
