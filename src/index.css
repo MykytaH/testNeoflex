@@ -345,7 +345,6 @@ footer {
 .group {
   display: flex;
   justify-content: space-between;
-  min-height: 30vh;
   align-items: center;
   gap: 2rem;
 }
@@ -567,6 +566,9 @@ footer {
   display: flex;
   justify-content: space-between;
   transition: 150ms;
+}
+.show {
+  min-height: 30vh;
 }
 
 @keyframes fade-slide-up {
