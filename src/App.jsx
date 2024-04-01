@@ -3,11 +3,14 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { HEADPHONES } from "./data";
 
 import Store from "./pages/Store";
-import Cart from "./pages/Cart";
+// import Cart from "./pages/Cart";
 import RootLayout from "./pages/RootLayout";
 import { CartContext } from "./store/cart-context";
-import { useState } from "react";
-import Payment from "./pages/Payment";
+import { lazy, Suspense, useState } from "react";
+// import Payment from "./pages/Payment";
+
+const Cart = lazy(() => import("./pages/Cart"));
+const Payment = lazy(() => import("./pages/Payment"));
 
 const router = createBrowserRouter(
   [
@@ -19,11 +22,19 @@ const router = createBrowserRouter(
         { index: true, element: <Store /> },
         {
           path: "cart",
-          element: <Cart />,
+          element: (
+            <Suspense>
+              <Cart />
+            </Suspense>
+          ),
         },
         {
           path: "payment",
-          element: <Payment />,
+          element: (
+            <Suspense>
+              <Payment />
+            </Suspense>
+          ),
         },
       ],
     },
